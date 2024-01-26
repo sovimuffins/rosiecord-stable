@@ -65,7 +65,7 @@ class States extends Colors {
 }
 
 class Constants {
-    static IPA_FETCH_LINK = "https://ipa.aspy.dev/discord/stable/Discord_213.0.ipa";
+    static IPA_FETCH_LINK = "https://ipa.aspy.dev/discord/stable/Discord_213.1.ipa";
 }
 
 export { Shell, Colors, Divider, States, Constants };
