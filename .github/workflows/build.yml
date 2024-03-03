@@ -34,3 +34,18 @@ jobs:
           automatic_release_tag: rosiecord_${{ steps.version.outputs.__DISCORD_VERSION }}
           title: Rosiecord ${{ steps.version.outputs.__DISCORD_VERSION }}
           files: Dist/*.ipa
+      
+      - name: Actions Status Discord Done
+        uses: sarisia/actions-status-discord@v1.13.0
+        if: success()
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          nodetail: true
+          title: A new version of `Rosiecord` is ready!
+          description: | 
+            Version `${{ steps.version.outputs.__DISCORD_VERSION }}`
+            Click [here](https://github.com/sovimuffins/rosiecord-stable/releases/latest) to download
+          url: https://github.com/sovimuffins/rosiecord-stable/releases/
+          content: Ready!
+          color: 0x000001
