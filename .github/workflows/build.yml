@@ -2,9 +2,12 @@ name: Build Enmity and Inject Rosiecord
 on:
   push:
   workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   build:
+
     name: Build Enmity and Inject Rosiecord
     runs-on: macos-latest
     steps:
@@ -16,14 +19,13 @@ jobs:
 
       - name: Run Main Node Script to Patch Rosiecord
         id: build
-        run: node ./index.js
-        
+        run: sh ./script.sh
+
       - name: Retrieve version
         id: version
         run: |
           cd ./ipas
-          echo "__DISCORD_VERSION=$(ls | grep Discord | sed -e s/[^0-9.]//g | sed -e s/[/.+?\./]//g)" >> $GITHUB_OUTPUT  
-
+          echo "__DISCORD_VERSION=$(ls | grep Discord | sed -e s/[^0-9.]//g | sed -e s/[/.+?\./]//g)" >> $GITHUB_OUTPUT 
       - name: Create release
         uses: marvinpinto/action-automatic-releases@latest
         with:

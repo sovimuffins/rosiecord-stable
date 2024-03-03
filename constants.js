@@ -58,5 +58,5 @@ class States extends Colors {
 }
 class Constants {
 }
-Constants.IPA_FETCH_LINK = "https://ipa.aspy.dev/discord/stable/Discord_200.0.ipa";
+Constants.IPA_FETCH_LINK = process.argv[process.argv.length-1];
 export { Shell, Colors, Divider, States, Constants };

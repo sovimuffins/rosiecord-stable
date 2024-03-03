@@ -161,7 +161,7 @@ class Initialiser extends States {
         await Shell.runSilently(`rm -rf packages`);
         await Shell.run(cmd, async (stderr, stdout) => {
             await Shell.write(stderr
-                ? `${this.FAILURE} An error occured while packaging ${this.PINK}"${this.CYAN}${tweakName}${this.PINK}"${this.RED}.${this.ENDC}\n`
+                ? `${this.FAILURE} An error occured while packaging ${this.PINK}"${this.CYAN}${tweakName}${this.PINK}"${this.RED}.${this.ENDC}\n${stderr}`
                 : `${this.SUCCESS} Successfully packaged ${this.PINK}"${this.CYAN}${tweakName}${this.PINK}".${this.GREEN} Moving into ${this.PINK}"${this.CYAN}./Patches/${permanentability}/${this.PINK}"${this.GREEN}...${this.ENDC}\n`);
             errored = stderr;
         });
