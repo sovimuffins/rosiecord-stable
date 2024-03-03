@@ -23,7 +23,7 @@ jobs:
           title: Building a new version of `Rosiecord`...
           description: | 
             I will send another message once its finished
-          url: https://github.com/SerStars/rosiecord/releases
+          url: https://github.com/sovimuffins/rosiecord-stable/releases
           content: Building!
           color: 0x000001
 
