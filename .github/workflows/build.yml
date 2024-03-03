@@ -27,11 +27,6 @@ jobs:
           content: Building!
           color: 0x000001
 
-    name: Build Enmity and Inject Rosiecord
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
-
       - name: Ensure main utils are installed
         id: core
         run: brew install coreutils ldid
